@@ -7,6 +7,10 @@ public class Main {
 		//get the users input
 		Scanner in = new Scanner(System.in);
 		
+		//create score variables
+		int wins = 0;
+		int losses = 0;
+		
 		//Loop through and keep asking the user to enter a move
 		while(true) {
 			System.out.println("Enter your move. Type in rock, paper or scissors. If you want to exit the game, type in quit");
@@ -45,11 +49,27 @@ public class Main {
 						&& opponentMove.equals("paper"))||
 						(myMove.equals("paper") && opponentMove.equals("rock")))) {
 					System.out.println("You won!");
+					wins++;
 				} else {
 					System.out.println("You lost!");
+					losses++;
 				}
 			}
-		}		
+			//Print wins and losses
+			System.out.println("You have won " + wins + " games");
+			System.out.println("You have lost " + losses + " games");
+		}	
+		
+		/*Check to see if the user has won more games than the user lost
+		or lost more than the user won, or if they were equal*/
+		if(wins > losses) {
+			System.out.println("You won more games than you lost!");
+		} else if(wins < losses) {
+			System.out.println("You lost more games than you won :(");
+		} else {
+			System.out.println("You won and lost an equal number of games!");
+		}
+		
 		System.out.println("Thanks for playing :)");
 	}
 
